@@ -6,6 +6,8 @@ class ToyAPI(APIView):
     """ Create a new Toy or update an existing Toy
     """
 
+    summary = "Add a new toy to the store"
+
     def post(self, request):
         return Response({})
 

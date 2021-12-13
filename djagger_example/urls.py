@@ -21,5 +21,5 @@ urlpatterns = [
     path('toy/', include('Toy.urls')),
     path('store/', include('Store.urls')),
     path('user/', include('User.urls')),
-
+    path('djagger/', include('djagger.urls'))
 ]

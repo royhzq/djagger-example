@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-uk_+$2%u9f#k41^$+8+t_$u728n3ta#5qh_m9$(n@1h6vr@#^u
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'astrid.sg'
 ]
 
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'djagger',
+    'djagger',
     'Toy',
     'Store',
     'User'
@@ -128,3 +129,28 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DJAGGER_SWAGGER = "2.0"
+DJAGGER_VERSION = "1.0.0"
+DJAGGER_TITLE = "Djagger Toy Store"
+DJAGGER_DESCRIPTION = """
+This is a sample OpenAPI 3.0 schema generated from a Django project using Djagger.
+
+View the Django source code on Github: https://github.com/royhzq/djagger-example
+
+View the documentation for Djagger: https://github.com/royhzq/djagger
+
+"""
+DJAGGER_LICENSE_NAME = "MIT"
+DJAGGER_HOST = "example.org"
+DJAGGER_BASEPATH = "/v1"
+DJAGGER_APP_NAMES = [ 'Toy', 'Store', 'User']
+DJAGGER_TAGS = [
+    { 'name':'Toy', 'description': 'Toy App'},
+    { 'name':'Store', 'description': 'Store App'},
+    { 'name':'User', 'description': 'User App'},
+]
+DJAGGER_X_TAG_GROUPS = [
+    { 'name':'GENERAL', 'tags': ['Toy', 'Store']},
+    { 'name':'USER MANAGEMENT', 'tags': ['User']}
+]
