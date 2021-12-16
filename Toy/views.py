@@ -1,12 +1,21 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .schemas import Toy
 
 
 class ToyAPI(APIView):
     """ Create a new Toy or update an existing Toy
     """
-
+    
     summary = "Add a new toy to the store"
+    consumes = ["application/json", "application/xml"]
+    produces = ["application/json", "application/xml"]
+    
+    post_response_schema = Toy
+    put_response_schema = Toy
+
+    def get(self, request):
+        return Response({})
 
     def post(self, request):
         return Response({})
