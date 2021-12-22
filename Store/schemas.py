@@ -1,27 +1,35 @@
 
 from pydantic import BaseModel as Schema, Field
-from typing import List
+from typing import List, Dict
 from enum import Enum
+import datetime
 
-class Status(str, Enum):
-    available = 'available'
-    pending = 'pending'
-    sold = 'sold'
+class InventoryByStatusSchema(Schema):
+    """A map of status codes to quantities"""
+    __root__ : Dict[str, int]
 
-class Category(Schema):
-    """Toy Category"""
+class OrderStatus(str, Enum):
+    placed = 'placed'
+    approved = 'approved'
+    delivered = 'delivered'
+
+class OrderSchema(Schema):
+
     id : int
-    name : str
+    toyId : int
+    quantity : int
+    shipDate : datetime.datetime
+    status : OrderStatus
+    complete : bool
 
-class Tag(Schema):
-    """Toy Tag"""
-    id : int
-    name : str
+class OrderIDSchema(Schema):
+    
+    orderId : int = Field(description="ID of order that needs to be fetched")
 
-class Toy(Schema):
-    """Toy Schema"""
-    id : int 
-    category : Category
-    photoUrls : List[str]
-    tags : List[Tag]
-    status : Status = Status.available
+class InvalidInputSchema(Schema):
+    """Invalid Input"""
+    ...
+
+class NotFoundSchema(Schema):
+    """Invalid Input"""
+    __root__ : str = Field("Not found")

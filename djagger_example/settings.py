@@ -154,3 +154,13 @@ DJAGGER_X_TAG_GROUPS = [
     { 'name':'GENERAL', 'tags': ['Toy', 'Store']},
     { 'name':'USER MANAGEMENT', 'tags': ['User']}
 ]
+DJAGGER_SERVERS = [
+    {
+        "url":"https://example.org",
+        "description":"Production API server"
+    },
+    {
+        "url":"https://staging.example.org",
+        "description":"Staging API server"
+    }
+]
