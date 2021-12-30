@@ -9,6 +9,7 @@ from .schemas import (
     LoginRequestSchema,
     LoginSuccessSchema,
     LoginErrorSchema,
+    ForbiddenSchema,
     LogoutSuccessSchema
 )
 
@@ -40,7 +41,8 @@ class Login(APIView):
     query_params = LoginRequestSchema
     response_schema = {
         "200":LoginSuccessSchema,
-        "400":LoginErrorSchema
+        "400":LoginErrorSchema,
+        ("403", "text/plain"): ForbiddenSchema
     }
 
     def get(self, request):

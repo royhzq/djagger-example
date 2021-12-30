@@ -79,6 +79,9 @@ class LoginErrorSchema(Schema):
     def example(cls):
         return cls(details="Invalid username/password supplied")
 
+class ForbiddenSchema(Schema):
+    __root__ : str = "403 Forbidden"
+
 class LogoutSuccessSchema(Schema):
     __root__ : str 
     
