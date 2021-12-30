@@ -52,6 +52,7 @@ class FindToyByStatusAPI(APIView):
     }
 
     def get(self, request):
+        ...
         return Response({})
 
 
@@ -66,6 +67,7 @@ class FindToyByTagAPI(APIView):
     }
 
     def get(self, request):
+        ...
         return Response({})
 
 
@@ -118,4 +120,5 @@ class UploadImageAPI(APIView):
     response_schema = ToyUploadImageSuccessSchema
 
     def post(self, request, toyId: int):
+        ...
         return Response({})

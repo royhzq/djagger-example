@@ -93,12 +93,15 @@ def author_api(request):
 
     if request.method == 'get':
         ...
+        return Response({})
 
     if request.method == 'post':
         ...
+        return Response({})
 
     if request.method == 'delete':
         ...
+        return Response({})
 
 class CategoryList(generics.ListCreateAPIView):
     """Example Generic View Documentation"""
@@ -109,10 +112,11 @@ class CategoryList(generics.ListCreateAPIView):
 
     def list(self, request):
         ...
+        return Response({})
 
     def create(self, request):
         ...
-
+        return Response({})
 
 class CategoryViewset(viewsets.ViewSet):
     """Example Viewset documentation"""
@@ -125,6 +129,7 @@ class CategoryViewset(viewsets.ViewSet):
     )
     def list(self, request):
         ...
+        return Response({})
 
     @schema(
         methods=['GET'],
@@ -133,3 +138,4 @@ class CategoryViewset(viewsets.ViewSet):
     )
     def retrieve(self, retrieve):
         ...
+        return Response({})
