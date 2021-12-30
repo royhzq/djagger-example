@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-uk_+$2%u9f#k41^$+8+t_$u728n3ta#5qh_m9$(n@1h6vr@#^u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'astrid.sg'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
