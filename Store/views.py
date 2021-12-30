@@ -13,7 +13,7 @@ from .schemas import (
 class InventoryAPI(APIView):
 
     summary = "Returns toy inventories by status"
-    get_response_schema = InventoryByStatusSchema
+    response_schema = InventoryByStatusSchema
 
     def get(self, request):
         ...
@@ -57,20 +57,3 @@ class OrderAPI(APIView):
     def delete(self, request, orderId : int):
         ...
         return Response({})
-
-
-from rest_framework import viewsets
-class OrderViewSet(viewsets.GenericViewSet):
-    """ Test order Generic viewset
-    """
-
-    serializer_class = OrderSerializer
-
-    def list(self, request):
-        queryset=[]
-        return Response({})
-
-    def retrieve(self, request):
-        queryset=[]
-        return Response({})
-

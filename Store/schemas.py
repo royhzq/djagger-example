@@ -14,7 +14,6 @@ class OrderStatus(str, Enum):
     delivered = 'delivered'
 
 class OrderSchema(Schema):
-
     id : int
     toyId : int
     quantity : int
@@ -23,7 +22,6 @@ class OrderSchema(Schema):
     complete : bool
 
 class OrderIDSchema(Schema):
-    
     orderId : int = Field(description="ID of order that needs to be fetched")
 
 class InvalidInputSchema(Schema):

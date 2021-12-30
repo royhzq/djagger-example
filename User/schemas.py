@@ -34,6 +34,21 @@ class LoginRequestSchema(Schema):
     username : str
     password : str = Field(description="The password for login in clear text")
 
+class UsernameSchema(Schema):
+    username : str = Field(
+        description="The username of the User that needs to be fetched.", 
+        required=True
+    )
+
+class UserErrorSchema(Schema):
+    msg : List[str]
+
+    @classmethod
+    def example(cls):
+        return cls(
+            msg=["A User error message here."]
+        )
+
 class LoginSuccessSchema(Schema):
 
     __root__ : str
@@ -57,7 +72,7 @@ class LoginSuccessSchema(Schema):
         }
 
 class LoginErrorSchema(Schema):
-
+    
     details : str 
 
     @classmethod

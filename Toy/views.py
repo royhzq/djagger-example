@@ -15,10 +15,8 @@ from .schemas import (
     ToyUploadImageSuccessSchema
 )
 
-
 class ToyAPI(APIView):
-    """ Create a new Toy or update an existing Toy
-    """
+    """ Create a new Toy or update an existing Toy"""
     post_summary = "Add a new toy to the store"    
     post_body_params = ToySchema
     post_response_schema = ToySchema
@@ -118,7 +116,6 @@ class UploadImageAPI(APIView):
         "application/octet-stream": ToyUploadImageSchema
     }
     response_schema = ToyUploadImageSuccessSchema
-
 
     def post(self, request, toyId: int):
         return Response({})

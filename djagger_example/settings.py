@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'djagger',
     'Toy',
     'Store',
+    'Blog',
     'User'
 ]
 
@@ -130,37 +131,34 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DJAGGER_SWAGGER = "2.0"
-DJAGGER_VERSION = "1.0.0"
-DJAGGER_TITLE = "Djagger Toy Store"
-DJAGGER_DESCRIPTION = """
-This is a sample OpenAPI 3.0 schema generated from a Django project using Djagger.
+DJAGGER_DOCUMENT = {
+    "version" : "1.0.0",
+    "title" : "Djagger Toy Store",
+    "description" : """This is a sample OpenAPI 3.0 schema generated from a Django project using Djagger. 
 
-View the Django source code on Github: https://github.com/royhzq/djagger-example
+View the Django project that generated this document on Github: https://github.com/royhzq/djagger-example.
 
-View the documentation for Djagger: https://github.com/royhzq/djagger
-
-"""
-DJAGGER_LICENSE_NAME = "MIT"
-DJAGGER_HOST = "example.org"
-DJAGGER_BASEPATH = "/v1"
-DJAGGER_APP_NAMES = [ 'Toy', 'Store', 'User']
-DJAGGER_TAGS = [
-    { 'name':'Toy', 'description': 'Toy App'},
-    { 'name':'Store', 'description': 'Store App'},
-    { 'name':'User', 'description': 'User App'},
-]
-DJAGGER_X_TAG_GROUPS = [
-    { 'name':'GENERAL', 'tags': ['Toy', 'Store']},
-    { 'name':'USER MANAGEMENT', 'tags': ['User']}
-]
-DJAGGER_SERVERS = [
-    {
-        "url":"https://example.org",
-        "description":"Production API server"
-    },
-    {
-        "url":"https://staging.example.org",
-        "description":"Staging API server"
-    }
-]
+    """,
+    "license_name" : "MIT",
+    "app_names" : [ 'Toy', 'Store', 'User', 'Blog'],
+    "tags" : [
+        { 'name':'Toy', 'description': 'Toy App'},
+        { 'name':'Store', 'description': 'Store App'},
+        { 'name':'User', 'description': 'User App'},
+        { 'name':'Blog', 'description': 'Blog App'},
+    ],
+    "x-tagGroups" : [
+        { 'name':'GENERAL', 'tags': ['Toy', 'Store', 'Blog']},
+        { 'name':'USER MANAGEMENT', 'tags': ['User']}
+    ],
+    "servers" : [
+        {
+            "url":"https://example.org",
+            "description":"Production API server"
+        },
+        {
+            "url":"https://staging.example.org",
+            "description":"Staging API server"
+        }
+    ],
+}

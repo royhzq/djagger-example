@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from .schemas import (
     UserSchema,
     UserListSchema,
+    UsernameSchema,
+    UserErrorSchema,
     LoginRequestSchema,
     LoginSuccessSchema,
     LoginErrorSchema,
@@ -22,8 +24,8 @@ class CreateUserAPI(APIView):
         return Response({})
 
 class CreateUsersListAPI(APIView):
-    """ Creates list of users with given input array
-    """
+    """ Creates list of users with given input array"""
+
     summary = "Create array of Users"
     body_params = UserListSchema
     response_schema = UserListSchema
@@ -56,14 +58,33 @@ class Logout(APIView):
         return Response({})
 
 class User(APIView):
-    """ Get a user by ``username``, update a user, or delete a user.
-    """
+
+    get_summary = "Get User"
+    put_summary = "Update User"
+    delete_summary = "Delete User"
+
+    path_params = UsernameSchema
+    response_schema = {
+        '200':UserSchema,
+        '400':UserErrorSchema,
+        '404':UserErrorSchema
+    }
+    delete_response_schema = {
+        '400':UserErrorSchema,
+        '404':UserErrorSchema
+    }
 
     def get(self, request, username : str):
+        """Retrieve a User by username"""
+        ...
         return Response({})
 
     def put(self, request, username : str):
+        """Update a User by username"""
+        ...
         return Response({})
 
     def delete(self, request, username : str):
+        """Delete a User by username"""
+        ...
         return Response({})
