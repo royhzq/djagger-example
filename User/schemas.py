@@ -1,17 +1,18 @@
-
 from pydantic import BaseModel as Schema, Field
 from typing import List
 
+
 class UserSchema(Schema):
     """A User object"""
-    id : int
-    username : str
-    firstName : str
-    lastName : str
-    email : str
-    password : str
-    phone : str
-    userStatus : int
+
+    id: int
+    username: str
+    firstName: str
+    lastName: str
+    email: str
+    password: str
+    phone: str
+    userStatus: int
 
     @classmethod
     def example(cls):
@@ -23,65 +24,66 @@ class UserSchema(Schema):
             email="john@email.com",
             password="12345",
             phone="12345",
-            userStatus=4
+            userStatus=4,
         )
+
 
 class UserListSchema(Schema):
     """Array of User objects"""
-    __root__ : List[UserSchema]
+
+    __root__: List[UserSchema]
+
 
 class LoginRequestSchema(Schema):
-    username : str
-    password : str = Field(description="The password for login in clear text")
+    username: str
+    password: str = Field(description="The password for login in clear text")
+
 
 class UsernameSchema(Schema):
-    username : str = Field(
-        description="The username of the User that needs to be fetched.", 
-        required=True
+    username: str = Field(
+        description="The username of the User that needs to be fetched."
     )
 
+
 class UserErrorSchema(Schema):
-    msg : List[str]
+    msg: List[str]
 
     @classmethod
     def example(cls):
-        return cls(
-            msg=["A User error message here."]
-        )
+        return cls(msg=["A User error message here."])
+
 
 class LoginSuccessSchema(Schema):
 
-    __root__ : str
+    __root__: str
 
     class Config:
         headers = {
-            "X-Rate-Limit":{
-                "description":"calls per hour allowed by the user",
-                "type":"integer",
-                "schema":{
-                    "type":"integer"
-                }
+            "X-Rate-Limit": {
+                "description": "calls per hour allowed by the user",
+                "type": "integer",
+                "schema": {"type": "integer"},
             },
-            "X-Expires-After":{
-                "description":"date in UTC when token expires",
-                "type":"string",
-                "schema":{
-                    "type":"strings"
-                }
-            }
+            "X-Expires-After": {
+                "description": "date in UTC when token expires",
+                "type": "string",
+                "schema": {"type": "string"},
+            },
         }
 
+
 class LoginErrorSchema(Schema):
-    
-    details : str 
+
+    details: str
 
     @classmethod
     def example(cls):
         return cls(details="Invalid username/password supplied")
 
+
 class ForbiddenSchema(Schema):
-    __root__ : str = "403 Forbidden"
+    __root__: str = "403 Forbidden"
+
 
 class LogoutSuccessSchema(Schema):
-    __root__ : str 
-    
+    __root__: str
