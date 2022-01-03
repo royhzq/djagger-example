@@ -9,7 +9,7 @@ urlpatterns = [
     path('articles/random', RandomArticleAPI.as_view()),
     path('articles/create', ArticleCreateAPI.as_view()),
     path('articles/update', ArticleUpdateAPI.as_view()),
-    path('articles/delete', ArticleDeleteAPI.as_view()),
+    path('articles/delete/<int:pk>', ArticleDeleteAPI.as_view()),
     path('articles/<int:year>/', ArticlesYearAPI.as_view()),
     path('articles/<int:year>/<int:month>/<slug:slug>/', ArticleDetailAPI.as_view()),
     path('author', author_api),

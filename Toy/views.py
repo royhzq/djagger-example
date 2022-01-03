@@ -74,7 +74,7 @@ class FindToyByTagAPI(APIView):
 class FindToyByIdAPI(APIView):
 
     get_summary = "Find Toy by ID"
-    get_path_params = ToyIdSchema
+    path_params = ToyIdSchema
     get_response_schema = {
         "200":ToySchema,
         "400":InvalidToySchema,
@@ -82,9 +82,7 @@ class FindToyByIdAPI(APIView):
     }
     
     post_summary = "Update Toy with form data"
-    post_request_schema = {
-        "multipart/form-data":ToyIdFormSchema
-    }
+    post_query_params = ToyIdFormSchema
     post_response_schema = {
         "405":InvalidToySchema
     }

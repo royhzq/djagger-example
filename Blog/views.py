@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from .schemas import (
     ArticleRequestSchema,
     ArticleDetailSchema,
+    ListArticleDetailSchema,
     ArticleCreateSchema,
     ArticleDeleteSchema,
     ArticleYearSchema,
@@ -54,6 +55,7 @@ class ArticleCreateAPI(APIView):
 class ArticleUpdateAPI(APIView):
 
     request_schema = ArticleUpdateSerializer
+    response_schema = ArticleDetailSchema
     
     def put(self, request):
         ...
@@ -61,7 +63,8 @@ class ArticleUpdateAPI(APIView):
 
 class ArticleDeleteAPI(APIView):
 
-    request_schema = ArticleDeleteSchema
+    path_params = ArticleDeleteSchema
+    response_schema = ArticleDeleteSchema
 
     def delete(self, request):
         ...
@@ -74,32 +77,28 @@ class ArticlesYearAPI(APIView):
     query_params = ArticlePageSchema
     header_params = ArticleHeaderSchema
     cookie_params = ArticleCookieSchema
+    response_schema = ListArticleDetailSchema
 
     def get(self, request):
         ...
         return Response({})
 
 @schema(
-    methods=['GET', 'POST', 'DELETE'],
-    summary="Authors API",
-    post_request_schema=AuthorSchema,
-    delete_request_schema=AuthorIdSchema,
+    methods=['GET', 'POST'],
+    get_summary="List Authors",
     get_response_schema=AuthorListSchema,
+    post_summary="Create Author",
+    post_request_schema=AuthorSchema,
     post_response_schema=AuthorSchema,
-    delete_response_schema=AuthorIdSchema,
 )
 def author_api(request):
-    """API to create an author, delete an author, or list all authors"""
+    """API to create an author or list all authors"""
 
     if request.method == 'get':
         ...
         return Response({})
 
     if request.method == 'post':
-        ...
-        return Response({})
-
-    if request.method == 'delete':
         ...
         return Response({})
 

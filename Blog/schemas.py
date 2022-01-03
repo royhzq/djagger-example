@@ -15,6 +15,8 @@ class ArticleDetailSchema(Schema):
     author: str
     content: str
 
+class ListArticleDetailSchema(Schema):
+    __root__ : List[ArticleDetailSchema]
 
 class ArticleCreateSchema(Schema):
     """POST schema for blog article creation"""

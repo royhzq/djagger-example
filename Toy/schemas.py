@@ -66,7 +66,6 @@ class ToyIdSchema(Schema):
 
 class ToyIdFormSchema(Schema):
     """Form parameters in request body to query a single Toy"""
-    toyId : int = Field(description="ID of Toy that needs to be updated")
     name : Optional[str] = Field(description="Name of Toy to update")
     status : Optional[str] = Field(description="Status of Toy to update")
 
