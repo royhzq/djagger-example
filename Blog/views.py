@@ -44,7 +44,7 @@ class ArticleDetailAPI(APIView):
 
 class ArticleCreateAPI(APIView):
 
-    body_params = ArticleCreateSchema
+    request_schema = ArticleCreateSchema
     response_schema = ArticleDetailSchema
 
     def post(self, request):
@@ -53,7 +53,7 @@ class ArticleCreateAPI(APIView):
 
 class ArticleUpdateAPI(APIView):
 
-    body_params = ArticleUpdateSerializer
+    request_schema = ArticleUpdateSerializer
     
     def put(self, request):
         ...
@@ -61,7 +61,7 @@ class ArticleUpdateAPI(APIView):
 
 class ArticleDeleteAPI(APIView):
 
-    body_params = ArticleDeleteSchema
+    request_schema = ArticleDeleteSchema
 
     def delete(self, request):
         ...
@@ -82,8 +82,8 @@ class ArticlesYearAPI(APIView):
 @schema(
     methods=['GET', 'POST', 'DELETE'],
     summary="Authors API",
-    post_body_params=AuthorSchema,
-    delete_body_params=AuthorIdSchema,
+    post_request_schema=AuthorSchema,
+    delete_request_schema=AuthorIdSchema,
     get_response_schema=AuthorListSchema,
     post_response_schema=AuthorSchema,
     delete_response_schema=AuthorIdSchema,

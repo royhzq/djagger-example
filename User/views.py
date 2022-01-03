@@ -17,7 +17,7 @@ class CreateUserAPI(APIView):
     """This can only be done by the logged in user."""
 
     summary = "Create user"
-    body_params = UserSchema
+    request_schema = UserSchema
     response_schema = UserSchema
 
     def post(self, request):
@@ -28,7 +28,7 @@ class CreateUsersListAPI(APIView):
     """ Creates list of users with given input array"""
 
     summary = "Create array of Users"
-    body_params = UserListSchema
+    request_schema = UserListSchema
     response_schema = UserListSchema
 
     def post(self, request):

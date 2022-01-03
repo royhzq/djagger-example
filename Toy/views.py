@@ -18,11 +18,11 @@ from .schemas import (
 class ToyAPI(APIView):
     """ Create a new Toy or update an existing Toy"""
     post_summary = "Add a new toy to the store"    
-    post_body_params = ToySchema
+    post_request_schema = ToySchema
     post_response_schema = ToySchema
 
     put_summary = "Update an existing toy"
-    put_body_params = ToySchema
+    put_request_schema = ToySchema
     put_response_schema = {
         "200":ToySchema,
         "400":InvalidToySchema,
@@ -82,7 +82,7 @@ class FindToyByIdAPI(APIView):
     }
     
     post_summary = "Update Toy with form data"
-    post_body_params = {
+    post_request_schema = {
         "multipart/form-data":ToyIdFormSchema
     }
     post_response_schema = {
@@ -114,7 +114,7 @@ class UploadImageAPI(APIView):
     summary = "Uploads an image"
     path_params = ToyIdSchema
     query_params = ToyMetaDataSchema
-    body_params = {
+    request_schema = {
         "application/octet-stream": ToyUploadImageSchema
     }
     response_schema = ToyUploadImageSuccessSchema

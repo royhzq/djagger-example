@@ -23,7 +23,7 @@ class InventoryAPI(APIView):
 class PlaceOrderAPI(APIView):
 
     summary = "Place an order for a toy"
-    body_params = OrderSchema
+    request_schema = OrderSchema
     response_schema = {
         "200" : OrderSchema,
         "405" : InvalidInputSchema
