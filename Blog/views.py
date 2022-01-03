@@ -16,7 +16,6 @@ from .schemas import (
     ArticleCookieSchema,
     AuthorSchema,
     AuthorListSchema,
-    AuthorIdSchema,
     CategoryListSchema,
 )
 
