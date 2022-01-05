@@ -1,5 +1,4 @@
 asgiref==3.4.1
-dataclasses==0.8
 Django==3.2.10
 djangorestframework==3.12.4
 djagger==1.1.0
